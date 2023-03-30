@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/home_dest">
+
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.mackenzie.magiccards.ui.home.HomeFragment"
+        android:label="fragment_selector"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_cards"
+            app:destination="@id/cards_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/cards_dest"
+        android:name="com.mackenzie.magiccards.ui.cards.CardsFragment"
+        android:label="fragment_waifu"
+        tools:layout="@layout/fragment_cards" >
+        <action
+            android:id="@+id/action_cards_to_detail"
+            app:destination="@id/detail_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/side_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_dest"
+        android:name="com.mackenzie.magiccards.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="cardId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
