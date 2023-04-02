@@ -17,7 +17,6 @@ class ServerDataSource @Inject constructor(private val remoteService: HogwartsSe
     override suspend fun getHouses(): Either<Error, List<HouseItem>> = tryCall {
         remoteService
             .getHogwartsHouses()
-            .houses
             .toDomainModel()
     }
 
