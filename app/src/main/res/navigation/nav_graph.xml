@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/home_dest">
+    app:startDestination="@id/login_dest">
 
     <fragment
-        android:id="@+id/home_dest"
-        android:name="com.mackenzie.magiccards.ui.home.HomeFragment"
-        android:label="fragment_selector"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/login_dest"
+        android:name="com.mackenzie.hogwarts.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_home_to_cards"
-            app:destination="@id/cards_dest"
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/home_dest"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/side_out_left"
             app:launchSingleTop="false"
@@ -20,12 +20,33 @@
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/cards_dest"
-        android:name="com.mackenzie.magiccards.ui.cards.CardsFragment"
-        android:label="fragment_waifu"
-        tools:layout="@layout/fragment_cards" >
+        android:id="@+id/home_dest"
+        android:name="com.mackenzie.hogwarts.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_cards_to_detail"
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/detail_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/side_out_right" />
+        <action
+            android:id="@+id/action_home_to_favorite"
+            app:destination="@id/favorite_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/side_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favorite_dest"
+        android:name="com.mackenzie.hogwarts.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favorite_to_detail"
             app:destination="@id/detail_dest"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/side_out_left"
@@ -35,12 +56,12 @@
 
     <fragment
         android:id="@+id/detail_dest"
-        android:name="com.mackenzie.magiccards.ui.detail.DetailFragment"
+        android:name="com.mackenzie.hogwarts.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
-            android:name="cardId"
-            app:argType="string" />
+            android:name="houseId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

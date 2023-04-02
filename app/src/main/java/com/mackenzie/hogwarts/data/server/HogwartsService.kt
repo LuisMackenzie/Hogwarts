@@ -1,10 +1,9 @@
 package com.mackenzie.hogwarts.data.server
 
-import com.mackenzie.hogwarts.data.server.model.DummyResponse
 import com.mackenzie.hogwarts.data.server.model.HousesResponse
+import com.mackenzie.hogwarts.data.server.model.HousesResult
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface HogwartsService {
 
@@ -14,5 +13,5 @@ interface HogwartsService {
     @GET("/Houses/{id}")
     suspend fun getHouse(
         @Path("id") id : String
-    ): DummyResponse
+    ): HousesResult
 }

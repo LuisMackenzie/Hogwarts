@@ -5,11 +5,11 @@ import kotlinx.parcelize.Parcelize
 
 
 data class HousesResponse (
-    val houses : List<HousesResponseItem>
+    val houses : List<HousesResult>
     )
 
 @Parcelize
-data class HousesResponseItem(
+data class HousesResult(
     val animal: String,
     val commonRoom: String,
     val element: String,
