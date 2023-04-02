@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class ServerDataSource @Inject constructor(private val remoteService: HogwartsService): HousesServerDataSource {
 
-    override suspend fun getHouses(page: Int, pageSize: Int): Either<Error, List<HouseItem>> = tryCall {
+    override suspend fun getHouses(): Either<Error, List<HouseItem>> = tryCall {
         remoteService
             .getHogwartsHouses()
             .houses
@@ -43,17 +43,17 @@ private fun HousesResult.toDomainModel(): HouseItem = HouseItem(
     element,
     founder,
     ghost,
-    heads.toDomainModel(),
+    heads.toDomainHeadModel(),
     houseColours,
     houseId = id,
     name,
-    traits.toDomainModel(),
+    traits.toDomainTraitModel(),
     isFavorite = false
 )
 
-private fun List<HeadResponse>.toDomainModel() : List<HeadItem> = map { it.toDomainModel()}
+private fun List<HeadResponse>.toDomainHeadModel() : List<HeadItem> = map { it.toDomainHeadModel()}
 
-private fun HeadResponse.toDomainModel(): HeadItem = HeadItem(
+private fun HeadResponse.toDomainHeadModel(): HeadItem = HeadItem(
     id = 0,
     firstName,
     headId = id,
@@ -61,9 +61,9 @@ private fun HeadResponse.toDomainModel(): HeadItem = HeadItem(
     isFavorite = false
 )
 
-private fun List<TraitResponse>.toDomainModel() : List<TraitItem> = map { it.toDomainModel()}
+private fun List<TraitResponse>.toDomainTraitModel() : List<TraitItem> = map { it.toDomainTraitModel()}
 
-private fun TraitResponse.toDomainModel(): TraitItem = TraitItem(
+private fun TraitResponse.toDomainTraitModel(): TraitItem = TraitItem(
     id = 0,
     traitId = id,
     name

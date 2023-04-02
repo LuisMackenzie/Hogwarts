@@ -10,12 +10,6 @@ interface HousesDao {
     @Query("SELECT * FROM HousesDbItem")
     fun getAll(): Flow<List<HousesDbItem>>
 
-    @Query("SELECT * FROM HousesDbItem ORDER BY firstName ASC")
-    fun getAllByName(): Flow<List<HousesDbItem>>
-
-    @Query("SELECT * FROM HousesDbItem ORDER BY lastName ASC")
-    fun getAllByLast(): Flow<List<HousesDbItem>>
-
     @Query("SELECT * FROM HousesDbItem WHERE id = :id")
     fun findById(id: Int): Flow<HousesDbItem>
 
