@@ -14,7 +14,7 @@ interface HousesDao {
     fun findById(id: Int): Flow<HousesDbItem>
 
     @Query("SELECT COUNT(id) FROM HousesDbItem")
-    suspend fun cardsCount(): Int
+    suspend fun housesCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHouse(house: HousesDbItem)

@@ -3,22 +3,21 @@ import android.os.Parcelable
 
 import kotlinx.parcelize.Parcelize
 
-
 data class HousesResponse (
-    val houses : List<HousesResult>
+    val houses: List<HousesResult>
     )
 
 @Parcelize
 data class HousesResult(
-    val animal: String,
-    val commonRoom: String,
-    val element: String,
-    val founder: String,
-    val ghost: String,
-    val heads: List<HeadResponse>,
-    val houseColours: String,
     val id: String,
     val name: String,
+    val houseColours: String,
+    val founder: String,
+    val animal: String,
+    val element: String,
+    val ghost: String,
+    val commonRoom: String,
+    val heads: List<HeadResponse>,
     val traits: List<TraitResponse>
 ) : Parcelable
 
@@ -34,4 +33,5 @@ data class TraitResponse(
     val id: String,
     val name: String
 ) : Parcelable
+
 

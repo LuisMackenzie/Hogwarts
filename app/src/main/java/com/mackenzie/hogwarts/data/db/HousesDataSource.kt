@@ -17,7 +17,7 @@ class HousesDataSource @Inject constructor(private val dao: HousesDao, private v
 
     override val houses: Flow<List<HouseItem>> = dao.getAll().map { it.toDomainModel() }
 
-    override suspend fun isEmpty(): Boolean = dao.cardsCount() == 0
+    override suspend fun isEmpty(): Boolean = dao.housesCount() == 0
 
     override fun findById(id: Int): Flow<HouseItem> = dao.findById(id).map { it.toDomainModel() }
 

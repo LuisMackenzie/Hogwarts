@@ -5,6 +5,7 @@ import com.mackenzie.hogwarts.data.db.model.HeadDbItem
 import com.mackenzie.hogwarts.data.db.model.HousesDbItem
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface HeadDao {
 
     @Query("SELECT * FROM HeadDbItem")
