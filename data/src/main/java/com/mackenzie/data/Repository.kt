@@ -3,6 +3,7 @@ package com.mackenzie.data
 import com.mackenzie.data.datasources.HeadsLocalDataSource
 import com.mackenzie.data.datasources.HousesLocalDataSource
 import com.mackenzie.data.datasources.HousesServerDataSource
+import com.mackenzie.data.datasources.UsersLocalDataSource
 import com.mackenzie.domain.HouseItem
 import com.mackenzie.domain.Error
 import com.mackenzie.domain.HeadItem
@@ -11,6 +12,7 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(
     private val localDataSource: HousesLocalDataSource,
+    private val usersDataSource: UsersLocalDataSource,
     private val headsLocalDataSource: HeadsLocalDataSource,
     private val remoteDataSource: HousesServerDataSource
 ) {

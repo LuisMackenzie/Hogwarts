@@ -1,8 +1,9 @@
-package com.mackenzie.hogwarts.data.db
+package com.mackenzie.hogwarts.data.db.datasources
 
 import com.mackenzie.data.datasources.HeadsLocalDataSource
 import com.mackenzie.domain.Error
 import com.mackenzie.domain.HeadItem
+import com.mackenzie.hogwarts.data.db.dao.HeadDao
 import com.mackenzie.hogwarts.data.db.model.HeadDbItem
 import com.mackenzie.hogwarts.data.tryCall
 import kotlinx.coroutines.flow.Flow

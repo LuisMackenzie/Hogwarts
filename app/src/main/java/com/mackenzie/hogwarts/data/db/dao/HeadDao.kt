@@ -1,4 +1,4 @@
-package com.mackenzie.hogwarts.data.db
+package com.mackenzie.hogwarts.data.db.dao
 
 import androidx.room.*
 import com.mackenzie.hogwarts.data.db.model.HeadDbItem

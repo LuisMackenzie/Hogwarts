@@ -5,9 +5,11 @@ import androidx.room.Room
 import com.mackenzie.data.datasources.HeadsLocalDataSource
 import com.mackenzie.data.datasources.HousesLocalDataSource
 import com.mackenzie.data.datasources.HousesServerDataSource
-import com.mackenzie.hogwarts.data.db.HeadsDataSource
+import com.mackenzie.data.datasources.UsersLocalDataSource
+import com.mackenzie.hogwarts.data.db.datasources.HeadsDataSource
 import com.mackenzie.hogwarts.data.db.HogwartsDataBase
-import com.mackenzie.hogwarts.data.db.HousesDataSource
+import com.mackenzie.hogwarts.data.db.datasources.HousesDataSource
+import com.mackenzie.hogwarts.data.db.datasources.UsersDataSource
 import com.mackenzie.hogwarts.data.server.HogwartsService
 import com.mackenzie.hogwarts.data.server.ServerDataSource
 import dagger.Binds
@@ -68,6 +70,9 @@ abstract class AppDataModule {
 
     @Binds
     abstract fun bindLocalDataSource(localDataSource: HousesDataSource): HousesLocalDataSource
+
+    @Binds
+    abstract fun bindUsersDataSource(usersDataSource: UsersDataSource): UsersLocalDataSource
 
     @Binds
     abstract fun bindFavoriteDataSource(headsDataSource: HeadsDataSource): HeadsLocalDataSource

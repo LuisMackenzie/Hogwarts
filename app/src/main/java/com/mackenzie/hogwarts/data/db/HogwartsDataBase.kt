@@ -2,6 +2,9 @@ package com.mackenzie.hogwarts.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.mackenzie.hogwarts.data.db.dao.HeadDao
+import com.mackenzie.hogwarts.data.db.dao.HousesDao
+import com.mackenzie.hogwarts.data.db.dao.UserDao
 import com.mackenzie.hogwarts.data.db.model.HeadDbItem
 import com.mackenzie.hogwarts.data.db.model.HousesDbItem
 import com.mackenzie.hogwarts.data.db.model.TraitDbItem

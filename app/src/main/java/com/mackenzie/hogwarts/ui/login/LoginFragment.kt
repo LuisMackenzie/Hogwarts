@@ -13,18 +13,18 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    private lateinit var homeState: HomeState
+    private lateinit var loginState: LoginState
     private lateinit var binding: FragmentLoginBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeState = HomeState(requireContext(), findNavController())
+        loginState = buildLoginState()
         binding = FragmentLoginBinding.bind(view).apply {
             btnLogin.setOnClickListener{
                 Toast.makeText(requireContext(), "Not yet Implemented", Toast.LENGTH_SHORT).show()
             }
             btnTest.setOnClickListener{
-                homeState.onButtonTestClicked()
+                loginState.onButtonTestClicked()
             }
         }
     }

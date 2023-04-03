@@ -1,4 +1,4 @@
-package com.mackenzie.hogwarts.data.db
+package com.mackenzie.hogwarts.data.db.datasources
 
 import com.google.gson.Gson
 import com.mackenzie.data.datasources.HousesLocalDataSource
@@ -6,6 +6,8 @@ import com.mackenzie.domain.Error
 import com.mackenzie.domain.HeadItem
 import com.mackenzie.domain.HouseItem
 import com.mackenzie.domain.TraitItem
+import com.mackenzie.hogwarts.data.db.dao.HeadDao
+import com.mackenzie.hogwarts.data.db.dao.HousesDao
 import com.mackenzie.hogwarts.data.db.model.HeadDbItem
 import com.mackenzie.hogwarts.data.db.model.HousesDbItem
 import com.mackenzie.hogwarts.data.tryCall

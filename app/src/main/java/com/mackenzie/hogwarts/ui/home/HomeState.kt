@@ -26,23 +26,6 @@ class HomeState(
         navController.navigate(action)
     }
 
-    /*fun onFavoriteClicked(head: HeadItem) {
-
-        val action = FavoriteFragmentDirections.actionFavoriteToDetail(head.id)
-        navController.navigate(action)
-    }*/
-
-    fun onButtonTestClicked() {
-        val action = LoginFragmentDirections.actionLoginToHome()
-        navController.navigate(action)
-    }
-
-    fun onLoginClicked() {
-        // TODO implement login
-        // val action = LoginFragmentDirections.actionLoginToHome()
-        // navController.navigate(action)
-    }
-
     fun errorToString(error: Error) = when (error) {
         Error.Connectivity -> context.getString(R.string.connectivity_error)
         is Error.Server -> context.getString(R.string.server_api_error) + error.code

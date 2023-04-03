@@ -11,8 +11,6 @@ C
 domain/build.gradle,a\3\a3021bb5ba623a461b5fdb89ae51923a4945c354
 E
 usecases/build.gradle,a\6\a6f2e24db4af450148c09ad2102d674b776723f8
-s
-Capp/src/main/java/com/mackenzie/hogwarts/ui/login/LoginViewModel.kt,0\9\09fbaf4679b87567476f6e137882f9e391fcfd88
 b
 2domain/src/main/java/com/mackenzie/domain/Error.kt,5\6\56deeb2db47102e5408ab9892b12643db29c60e3
 k
@@ -23,16 +21,8 @@ n
 >app/src/main/java/com/mackenzie/hogwarts/ui/NavHostActivity.kt,8\6\8684a43cbc5f832d604673d7cb6fb37078a0010c
 f
 6domain/src/main/java/com/mackenzie/domain/TraitItem.kt,5\e\5e6e8cadb6626ec0e885e87393562b15d4f1e7ba
-r
-Bapp/src/main/java/com/mackenzie/hogwarts/ui/login/LoginFragment.kt,f\a\faa4594689b82ba7806911401f35435ce35e50f1
-{
-Kdata/src/main/java/com/mackenzie/data/datasources/HousesServerDataSource.kt,1\b\1bb99de8e7b865f64a8180cceb6b31255bc6d7bb
 v
 Fapp/src/main/java/com/mackenzie/hogwarts/data/db/model/HousesDbItem.kt,3\f\3f10b7b824d35de9c36fa946f1734ac0cd43529c
-t
-Dapp/src/main/java/com/mackenzie/hogwarts/data/db/model/UserDbItem.kt,2\0\20064d7d8e8309ab8c9fb757fe70c00f67a155c0
-k
-;app/src/main/java/com/mackenzie/hogwarts/data/db/UserDao.kt,d\1\d1c9be72bef3bc8ab5d3c3ef378bd0b3ffb5cacb
 Å
 Q.idea/sonarlint/securityhotspotstore/c/9/c9ac2a4cd06d826176e9c3c9de32ec443cb092bf,8\2\82b3ba8cd79d342f960adb7af7cb621e37c6e506
 Å
@@ -115,8 +105,6 @@ w
 G.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e,3\2\32813322c99a6c8a141ab2dc12bc10af3425f1b4
 w
 G.idea/sonarlint/issuestore/8/6/8684a43cbc5f832d604673d7cb6fb37078a0010c,1\6\16a587a18154f2ccf83ec1f510127e8c53455b60
-y
-Idata/src/main/java/com/mackenzie/data/datasources/HeadsLocalDataSource.kt,0\2\02e51f0f739acf73ddc34885818b1d5e335f2191
 Å
 Q.idea/sonarlint/securityhotspotstore/d/1/d14c8ccc613745349df79416237e5f1f0397a8df,e\f\ef2082abfc7e2b7aaf2bc2e93ed2cc2c69ee751e
 Å
