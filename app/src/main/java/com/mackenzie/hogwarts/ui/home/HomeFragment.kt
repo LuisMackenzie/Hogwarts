@@ -9,9 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.mackenzie.hogwarts.R
 import com.mackenzie.hogwarts.databinding.FragmentHomeBinding
-import com.mackenzie.hogwarts.ui.common.Constants
-import com.mackenzie.hogwarts.ui.common.launchAndCollect
-import com.mackenzie.hogwarts.ui.common.visible
+import com.mackenzie.hogwarts.ui.common.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,9 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding = FragmentHomeBinding.bind(view).apply {
             recycler.adapter = housesAdapter
             listToolbar.title = getString(R.string.home_fragment_title)
-            listToolbar.setNavigationOnClickListener{
-                requireActivity().onBackPressedDispatcher.onBackPressed()
-            }
+            favCardview.setOnClickListener { homeState.onButtonFavoriteClicked() }
         }
         viewLifecycleOwner.launchAndCollect(viewModel.state) { binding withHousesUpdateUI it }
 
@@ -40,6 +36,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private infix fun FragmentHomeBinding.withHousesUpdateUI(state: HomeViewModel.UiState) {
+
+        favTitle.text = getString(R.string.favorite_characters)
+        favThumb.loadUrl(createImageUrl(getString(R.string.favorite_characters_images)))
 
         state.houses?.let { savedHouses ->
             housesAdapter.submitList(savedHouses)

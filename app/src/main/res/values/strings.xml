@@ -9,4 +9,8 @@
 
     <string name="houses_content">Here is shown some Houses</string>
     <string name="home_fragment_title">Home</string>
+    <string name="detail_fragment_title">House Details</string>
+    <string name="favorite_characters">Personajes Favoritos</string>
+    <string name="favorite_characters_images">Heads</string>
+
 </resources>

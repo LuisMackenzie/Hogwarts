@@ -15,7 +15,7 @@ class DetailViewModelModule {
     @Provides
     @ViewModelScoped
     @HouseId
-    fun provideWaifuId(savedStateHandle: SavedStateHandle) =
+    fun provideHouseId(savedStateHandle: SavedStateHandle) =
         DetailFragmentArgs.fromSavedStateHandle(savedStateHandle).houseId
 
 }

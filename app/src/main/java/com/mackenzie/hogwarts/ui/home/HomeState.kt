@@ -21,7 +21,7 @@ class HomeState(
         navController.navigate(action)
     }
 
-    fun onButttonFavoriteClicked() {
+    fun onButtonFavoriteClicked() {
         val action = HomeFragmentDirections.actionHomeToFavorite()
         navController.navigate(action)
     }

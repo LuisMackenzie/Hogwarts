@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.mackenzie.domain.ImagesItem
 import com.mackenzie.hogwarts.R
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -34,11 +35,24 @@ inline fun <T> basicDiffUtil(
 fun ImageView.loadUrl(url: String) {
     Glide.with(context)
         .load(url)
+        .centerCrop()
         .placeholder(R.drawable.baseline_downloading)
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .transition(DrawableTransitionOptions.withCrossFade())
         .error(R.drawable.ic_error_grey)
         .into(this)
+}
+
+fun createImageUrl(houseName: String): String {
+    val resources = ImagesItem()
+    when (houseName) {
+        "Gryffindor" -> return resources.gryf
+        "Slytherin" -> return resources.slyt
+        "Ravenclaw" -> return resources.rave
+        "Hufflepuff" -> return resources.huff
+        "Hogwarts" -> return resources.hogwarts
+        else -> return resources.heads
+    }
 }
 
 fun ImageView.loadUrlWithCircleCrop(url: String) {
