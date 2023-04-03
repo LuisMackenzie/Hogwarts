@@ -23,16 +23,8 @@ n
 >app/src/main/java/com/mackenzie/hogwarts/ui/NavHostActivity.kt,8\6\8684a43cbc5f832d604673d7cb6fb37078a0010c
 f
 6domain/src/main/java/com/mackenzie/domain/TraitItem.kt,5\e\5e6e8cadb6626ec0e885e87393562b15d4f1e7ba
-e
-5domain/src/main/java/com/mackenzie/domain/HeadItem.kt,2\5\253bb79a73d94d602d4645912190459556c7ddf3
-x
-Happ/src/main/java/com/mackenzie/hogwarts/ui/favorite/FavoriteFragment.kt,2\8\28a1604e7f76c3fc05908dfb48de39e6346b2988
-y
-Iapp/src/main/java/com/mackenzie/hogwarts/ui/favorite/FavoriteViewModel.kt,d\1\d14c8ccc613745349df79416237e5f1f0397a8df
 r
 Bapp/src/main/java/com/mackenzie/hogwarts/ui/login/LoginFragment.kt,f\a\faa4594689b82ba7806911401f35435ce35e50f1
-z
-Jdata/src/main/java/com/mackenzie/data/datasources/HousesLocalDataSource.kt,b\f\bf33379fa556488d0bd10a0d6885bf4f352d0a15
 {
 Kdata/src/main/java/com/mackenzie/data/datasources/HousesServerDataSource.kt,1\b\1bb99de8e7b865f64a8180cceb6b31255bc6d7bb
 v
@@ -41,8 +33,6 @@ t
 Dapp/src/main/java/com/mackenzie/hogwarts/data/db/model/UserDbItem.kt,2\0\20064d7d8e8309ab8c9fb757fe70c00f67a155c0
 k
 ;app/src/main/java/com/mackenzie/hogwarts/data/db/UserDao.kt,d\1\d1c9be72bef3bc8ab5d3c3ef378bd0b3ffb5cacb
-c
-3data/src/main/java/com/mackenzie/data/Repository.kt,e\e\ee2a5e11c64926769a814caefbfbed1f61321353
 Å
 Q.idea/sonarlint/securityhotspotstore/c/9/c9ac2a4cd06d826176e9c3c9de32ec443cb092bf,8\2\82b3ba8cd79d342f960adb7af7cb621e37c6e506
 Å
@@ -81,8 +71,6 @@ Q.idea/sonarlint/securityhotspotstore/5/e/5e6e8cadb6626ec0e885e87393562b15d4f1e7
 Q.idea/sonarlint/securityhotspotstore/2/8/28a1604e7f76c3fc05908dfb48de39e6346b2988,0\6\067f44e4e8c4e7c1d964436b3caf3379dcf9bfe2
 Å
 Q.idea/sonarlint/securityhotspotstore/2/5/253bb79a73d94d602d4645912190459556c7ddf3,9\8\98e422239b4f692e07fb7606697cf32f066cd9c0
-x
-Husecases/src/main/java/com/mackenzie/usecases/RequestOnlyHouseUseCase.kt,0\b\0bf8bb1b00da93b03305682ee4595b4ff8fae71d
 w
 G.idea/sonarlint/issuestore/5/e/5e6e8cadb6626ec0e885e87393562b15d4f1e7ba,5\e\5e7a450f4fbbb1efa7de4a4b5bc8e3adc81f15b9
 u
@@ -91,12 +79,6 @@ w
 G.idea/sonarlint/issuestore/2/5/253bb79a73d94d602d4645912190459556c7ddf3,9\c\9c7be58c12a122fdc834af347be9a42e4f699865
 w
 G.idea/sonarlint/issuestore/2/0/20064d7d8e8309ab8c9fb757fe70c00f67a155c0,7\2\7276c9c0e1a411e66a21c2d4aa04788410781001
-p
-@usecases/src/main/java/com/mackenzie/usecases/FindHeadUseCase.kt,a\a\aaefb36022b5bc7ba041971fb5ed41ccaa58f357
-q
-Ausecases/src/main/java/com/mackenzie/usecases/FindHouseUseCase.kt,8\1\81b629018ace0258923e441994e0683c35cba5c7
-p
-@usecases/src/main/java/com/mackenzie/usecases/GetHeadsUseCase.kt,6\0\60bb727f33e950b25a2d889462ee32836b333d75
 Å
 Q.idea/sonarlint/securityhotspotstore/3/f/3f10b7b824d35de9c36fa946f1734ac0cd43529c,8\c\8c221dda51a45d4f637f1a6bb490d3e6f507227c
 Å
@@ -107,10 +89,6 @@ w
 Gusecases/src/main/java/com/mackenzie/usecases/DeleteAllHousesUseCase.kt,c\9\c96284c00dd0317f98c0de297ab50c5937a3f19a
 v
 Fusecases/src/main/java/com/mackenzie/usecases/DeleteAllHeadsUseCase.kt,0\2\0284ea743f9e70c8506114d1e0ebfc7bb5963032
-s
-Cusecases/src/main/java/com/mackenzie/usecases/DeleteHouseUseCase.kt,5\a\5af95303d020f870322971e9bbbb032e6464cb64
-r
-Busecases/src/main/java/com/mackenzie/usecases/DeleteHeadUseCase.kt,d\6\d60b6390732fa9f7adb797dbfc1d9f932c35eac5
 w
 G.idea/sonarlint/issuestore/1/b/1bb99de8e7b865f64a8180cceb6b31255bc6d7bb,d\a\dacf5168ef792598e6e6470329e3b65f55462fae
 w
@@ -133,8 +111,6 @@ w
 G.idea/sonarlint/issuestore/d/1/d1c9be72bef3bc8ab5d3c3ef378bd0b3ffb5cacb,6\8\68918b0756a00f613973c924283cc2cd0f6585d0
 w
 G.idea/sonarlint/issuestore/c/9/c9834825402d64f049fd5c5a524ee1d6c69f717a,9\d\9d4de7004f8b206269171b8b597ea7bb6a09cf9a
-k
-;app/src/main/java/com/mackenzie/hogwarts/data/db/HeadDao.kt,b\5\b508f6753e67388921cbd0ce1f141ec7bbb31a6a
 w
 G.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e,3\2\32813322c99a6c8a141ab2dc12bc10af3425f1b4
 w
@@ -145,8 +121,6 @@ Idata/src/main/java/com/mackenzie/data/datasources/HeadsLocalDataSource.kt,0\2\
 Q.idea/sonarlint/securityhotspotstore/d/1/d14c8ccc613745349df79416237e5f1f0397a8df,e\f\ef2082abfc7e2b7aaf2bc2e93ed2cc2c69ee751e
 Å
 Q.idea/sonarlint/securityhotspotstore/d/1/d1c9be72bef3bc8ab5d3c3ef378bd0b3ffb5cacb,2\9\29be3cc1792156f0538a82445724d91e0c6c5320
-s
-Capp/src/main/java/com/mackenzie/hogwarts/data/db/HeadsDataSource.kt,8\8\88c752c549979382989c9a7837b00bf63604e063
 Å
 Q.idea/sonarlint/securityhotspotstore/c/9/c9834825402d64f049fd5c5a524ee1d6c69f717a,b\c\bc23ff7ed0ecc0bdb65a3904750a42e944663a71
 m
@@ -157,8 +131,6 @@ Q.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec390
 Q.idea/sonarlint/securityhotspotstore/8/6/8684a43cbc5f832d604673d7cb6fb37078a0010c,e\5\e5beb88acb4ce779b7eea4b142e9156517c9b525
 w
 G.idea/sonarlint/issuestore/f/a/faa4594689b82ba7806911401f35435ce35e50f1,4\0\40eb48e39da426591b8f9893803085c24b19a005
-t
-Dapp/src/main/java/com/mackenzie/hogwarts/data/db/HogwartsDataBase.kt,2\3\23cf2e76922d4747876095305d2fd1493693e87d
 w
 G.idea/sonarlint/issuestore/d/1/d14c8ccc613745349df79416237e5f1f0397a8df,8\b\8be2e19a8a3a4f5149af9fe30832eb858fb31af9
 w

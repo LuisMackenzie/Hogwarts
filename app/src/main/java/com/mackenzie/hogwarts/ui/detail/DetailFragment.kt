@@ -22,11 +22,17 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     private val  viewModel: DetailViewModel by viewModels()
     private lateinit var binding: FragmentDetailBinding
     private lateinit var homeState: HomeState
+    private val headsAdapter = HeadsAdapter {
+        viewModel.onFavoriteClicked(it)
+        Toast.makeText(requireContext(), "Agregaste a ${it.firstName} a favoritos", Toast.LENGTH_SHORT).show()
+    }
+    private val traitsAdapter = TraitsAdapter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeState = buildHomeState()
         binding = FragmentDetailBinding.bind(view).apply {
-            detailToolbar.title = getString(R.string.detail_fragment_title)
+            recyclerTraits.adapter = traitsAdapter
+            recyclerHeads.adapter = headsAdapter
             detailToolbar.setNavigationOnClickListener{
                 requireActivity().onBackPressedDispatcher.onBackPressed()
             }
@@ -37,16 +43,16 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     private infix fun FragmentDetailBinding.updateUI(state: DetailViewModel.UiState) {
 
         state.house?.let { savedhouse ->
+            headsAdapter.submitList(savedhouse.heads)
+            traitsAdapter.submitList(savedhouse.traits)
             ivDetail.loadUrl(createImageUrl(savedhouse.name))
             "Titulo de la casa: ${savedhouse.name}".also { tvDetailTitle.text = it }
             "Animal: ${savedhouse.animal}".also { tvDetailAnimal.text = it }
             "Elemento: ${savedhouse.element}".also { tvDetailElement.text = it }
             "Fundador: ${savedhouse.founder}".also { tvDetailFounder.text = it }
             "Fantasma: ${savedhouse.ghost}".also { tvDetailGhost.text = it }
-            "Habitacion Comun: ${savedhouse.commonRoom}".also { tvDetailCommon.text = it }
-            "Líderes: ${savedhouse.heads.toString()}".also { tvDetailHeads.text = it }
+            "Habitacion: ${savedhouse.commonRoom}".also { tvDetailCommon.text = it }
             "Colores de la casa: ${savedhouse.houseColours}".also { tvDetailColours.text = it }
-            // "Tratos: ${savedhouse.traits.toString()}".also { tvDetailTraits.text = it }
         }
 
         state.error?.let {

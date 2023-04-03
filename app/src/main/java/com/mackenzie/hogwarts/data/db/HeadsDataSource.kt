@@ -27,7 +27,7 @@ class HeadsDataSource @Inject constructor(private val dao: HeadDao): HeadsLocalD
     }.fold(ifLeft = { it }, ifRight = { null })
 
     override suspend fun saveOnly(head: HeadItem): Error? = tryCall {
-        dao.insertHead(head.fromDomainModel())
+        dao.updateHead(head.fromDomainModel())
     }.fold(ifLeft = { it }, ifRight = { null })
 
     override suspend fun delete(head: HeadItem): Error? = tryCall {

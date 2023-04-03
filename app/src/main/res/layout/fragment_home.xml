@@ -23,82 +23,85 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:padding="@dimen/recycler_padding"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:itemCount="4"
-        tools:listitem="@layout/view_media_item" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/fav_cardview"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="@dimen/default_corner">
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/preview"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:shimmer_auto_start="true">
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:padding="@dimen/recycler_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:itemCount="4"
+                tools:listitem="@layout/view_media_item" />
 
-                <View
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fav_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="@dimen/default_corner">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/darker_gray" />
+                    android:layout_height="match_parent">
 
-            </com.facebook.shimmer.ShimmerFrameLayout>
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:shimmer_auto_start="true">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
 
 
-            <ImageView
-                android:id="@+id/favThumb"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/houses_content" />
+                    <ImageView
+                        android:id="@+id/favThumb"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:contentDescription="@string/houses_content" />
 
-            <TextView
-                android:id="@+id/favTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="25sp"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:background="@android:color/transparent"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                tools:text="Title" />
+                    <TextView
+                        android:id="@+id/favTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25sp"
+                        android:textColor="@color/white"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                        tools:text="Title" />
 
-            <ImageView
-                android:id="@+id/iv_favs"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignBottom="@+id/favThumb"
-                android:layout_alignStart="@+id/favThumb"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="8dp"
-                android:contentDescription="@string/houses_content"
-                android:src="@drawable/ic_favorite_on" />
+                </RelativeLayout>
 
-        </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/iv_loading"

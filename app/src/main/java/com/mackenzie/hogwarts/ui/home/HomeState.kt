@@ -26,11 +26,11 @@ class HomeState(
         navController.navigate(action)
     }
 
-    fun onFavoriteClicked(head: HeadItem) {
+    /*fun onFavoriteClicked(head: HeadItem) {
 
         val action = FavoriteFragmentDirections.actionFavoriteToDetail(head.id)
         navController.navigate(action)
-    }
+    }*/
 
     fun onButtonTestClicked() {
         val action = LoginFragmentDirections.actionLoginToHome()

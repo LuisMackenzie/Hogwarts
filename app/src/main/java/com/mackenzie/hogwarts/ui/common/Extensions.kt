@@ -55,6 +55,22 @@ fun createImageUrl(houseName: String): String {
     }
 }
 
+fun createImageHeadUrl(headName: String): String {
+    val resources = ImagesItem()
+    when (headName) {
+        "Minerva" -> return resources.minerva
+        "Godric" -> return resources.godric
+        "Filius" -> return resources.filius
+        "Rowena" -> return resources.rowena
+        "Helga" -> return resources.helga
+        "Pomona" -> return resources.pomona
+        "Horace" -> return resources.horace
+        "Salazar" -> return resources.salazar
+        "Severus" -> return resources.severus
+        else -> return resources.heads
+    }
+}
+
 fun ImageView.loadUrlWithCircleCrop(url: String) {
     Glide.with(context)
         .load(url)

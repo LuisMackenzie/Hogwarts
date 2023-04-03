@@ -41,6 +41,7 @@
             android:layout_height="25sp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
             android:background="@android:color/transparent"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
             tools:text="Title" />
@@ -49,10 +50,10 @@
             android:id="@+id/iv_favs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/houseThumb"
-            android:layout_alignStart="@+id/houseThumb"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_alignTop="@+id/houseThumb"
+            android:layout_alignEnd="@+id/houseThumb"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/houses_content"
             android:src="@drawable/ic_favorite_on" />
 

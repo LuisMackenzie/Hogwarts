@@ -146,34 +146,47 @@
                 android:layout_marginTop="@dimen/title_margin_top"
                 android:layout_marginBottom="@dimen/title_margin_bottom"
                 android:textSize="@dimen/title_text_size"
+                android:textColor="@color/teal_200"
+                android:text="@string/heads"
                 app:layout_constraintTop_toBottomOf="@id/tv_detail_common"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="Element Name" />
-
-
-
-            <!--<TextView
-                android:id="@+id/tv_detail_traits"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/title_margin_top"
-                android:layout_marginBottom="@dimen/title_margin_bottom"
-                android:textSize="@dimen/title_text_size"
-                app:layout_constraintTop_toBottomOf="@id/tv_detail_colours"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Element Name" />-->
+                tools:text="Traits" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_traits"
+                android:id="@+id/recycler_heads"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_heads"/>
+
+            <TextView
+                android:id="@+id/tv_detail_Traits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/title_margin_top"
+                android:layout_marginBottom="@dimen/title_margin_bottom"
+                android:textSize="@dimen/title_text_size"
+                android:text="@string/tratos"
+                android:textColor="@color/teal_200"
+                app:layout_constraintTop_toBottomOf="@id/recycler_heads"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Traits" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_traits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_Traits"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
