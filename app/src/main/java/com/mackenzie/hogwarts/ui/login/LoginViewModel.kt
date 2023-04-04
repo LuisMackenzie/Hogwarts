@@ -45,12 +45,13 @@ class LoginViewModel @Inject constructor(
         onFindLoggedUser(name)
         if (verifyUser(name)) {
             if (verifyPass(pass)) {
-                onUserLogged(_state.value.user!!)
+                _state.value.user?.let { onUserLogged(it) }
+                // onUserLogged(_state.value.user!!)
             } else {
-                _state.update { it.copy(passError = Error.Unknown("Contraseña incorrecta")) }
+                _state.update { it.copy(passError = Error.Unknown("Contrasena incorrecta")) }
             }
         } else {
-            _state.update { it.copy(userError = Error.Unknown("Usuario no encontrado")) }
+            _state.update { it.copy(passError = Error.Unknown("Usuario no encontrado")) }
         }
     }
 
@@ -65,14 +66,14 @@ class LoginViewModel @Inject constructor(
     fun onUserLogged(user: UserItem) {
         viewModelScope.launch {
             val error = userLoggedUseCase(user)
-            _state.update { it.copy(userError = error) }
+            // _state.update { it.copy(userError = error) }
         }
     }
 
-    private fun verifyUser(user: String): Boolean = _state.value.user?.name == user
+    private fun verifyUser(user: String): Boolean = _state.value.user?.name === user
 
 
-    private fun verifyPass(pass: String): Boolean = _state.value.user?.password == pass
+    private fun verifyPass(pass: String): Boolean = _state.value.user?.password === pass
 
     data class UiState(
         val user: UserItem? = null,

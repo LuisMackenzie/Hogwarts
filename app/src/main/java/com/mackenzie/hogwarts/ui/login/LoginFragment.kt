@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.mackenzie.domain.Error
 import com.mackenzie.hogwarts.R
 import com.mackenzie.hogwarts.databinding.FragmentHomeBinding
 import com.mackenzie.hogwarts.databinding.FragmentLoginBinding
@@ -32,7 +33,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view).apply {
             tietName.requestFocus()
             btnLogin.setOnClickListener{
-                viewModel.onLoginClicked(tietName.text.toString(), tietPass.text.toString())
+                if(tietName.text.toString() == "" || tietPass.text.toString() == "") {
+                    Toast.makeText(requireContext(), "Usuario o password no pueden estar vacios", Toast.LENGTH_SHORT).show()
+                } else {
+                    viewModel.onLoginClicked(tietName.text.toString(), tietPass.text.toString())
+                }
             }
         }
         isUserLogged(sharedPref)
@@ -46,7 +51,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             loginState.onUserLogged()
             Toast.makeText(requireContext(), "Detectada sesion anterior", Toast.LENGTH_SHORT).show()
         } else {
-            // Toast.makeText(requireContext(), "No Existe sesion previa", Toast.LENGTH_SHORT).show()
             Log.e(Constants.TAG_CARD_CONECTION_ERROR, getString(R.string.error_unespecified))
         }
     }
@@ -72,13 +76,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         state.userError?.let {
-            // Toast.makeText(requireContext(), "El usuario no existe", Toast.LENGTH_SHORT).show()
             Log.e(Constants.TAG_CARD_CONECTION_ERROR, loginState.errorToString(it))
         }
 
         state.passError?.let {
-            Toast.makeText(requireContext(), "La Password es incorrecta", Toast.LENGTH_SHORT).show()
-            Log.e(Constants.TAG_CARD_CONECTION_ERROR, loginState.errorToString(it))
+
+            when (it) {
+                Error.Unknown("Contrasena incorrecta") -> {
+                    Toast.makeText(requireContext(), "La pass es incorrecta", Toast.LENGTH_SHORT).show()
+                    Log.e(Constants.TAG_CARD_CONECTION_ERROR, loginState.errorToString(it))
+                }
+                Error.Unknown("Usuario no encontrado") -> {
+                    Toast.makeText(requireContext(), "El User es incorrecto", Toast.LENGTH_SHORT).show()
+                    Log.e(Constants.TAG_CARD_CONECTION_ERROR, loginState.errorToString(it))
+                }
+                else -> {
+                    Log.e(Constants.TAG_CARD_CONECTION_ERROR, loginState.errorToString(it))
+                }
+            }
+
         }
 
     }

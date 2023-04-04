@@ -23,5 +23,8 @@
     <string name="login_pass">Contraseña</string>
     <string name="close_session">Cerrar Sesión</string>
     <string name="error_unespecified">No Existe sesion Previa</string>
+    <string name="close_sesion">¿Seguro que quieres cerrar Sesión?</string>
+    <string name="close_sesion_confirm">Cerrar Sesión</string>
+    <string name="close_session_successful">Se cerró la sesión con éxito</string>
 
 </resources>

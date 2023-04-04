@@ -1,10 +1,12 @@
 package com.mackenzie.hogwarts.ui.detail
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import com.mackenzie.hogwarts.R
 import com.mackenzie.hogwarts.databinding.FragmentDetailBinding
@@ -69,7 +71,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         binding.detailToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_close_session -> {
-                    homeState.onDetailCloseSesion()
+                    showCloseSesionAlert()
                     true
                 }
                 else -> false
@@ -77,6 +79,25 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         }
     }
 
-
+    fun showCloseSesionAlert() {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(R.string.close_sesion)
+                setPositiveButton(R.string.close_sesion_confirm,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        viewModel.onUserLogOut()
+                        homeState.onDetailCloseSesion()
+                        Toast.makeText(requireContext(), getString(R.string.close_session_successful), Toast.LENGTH_SHORT).show()
+                    })
+                setNegativeButton(R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dialog.dismiss()
+                    })
+            }
+            builder.create()
+        }
+        alertDialog?.show()
+    }
 
 }

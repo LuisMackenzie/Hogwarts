@@ -19,18 +19,21 @@ class HeadsAdapter (private val listener: (HeadItem) -> Unit) : ListAdapter<Head
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val head = getItem(position)
         holder.bind(head)
-        holder.itemView.setOnClickListener { listener(head) }
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ViewHouseHeadItemBinding.bind(view)
         fun bind(head: HeadItem) {
             (head.firstName + " " + head.lastName).also { binding.headTitle.text = it }
             binding.headImage.loadUrlWithCircleCrop(createImageHeadUrl(head.firstName))
-            if (head.isFavorite) {
-                binding.ivFavs.setImageResource(R.drawable.ic_favorite_on)
-            } else {
-                binding.ivFavs.setImageResource(R.drawable.ic_favorite_off)
+            binding.ivFavs.setOnClickListener {
+                head.copy(isFavorite = !head.isFavorite).also { head ->
+                    binding.ivFavs.setImageResource(
+                        if (head.isFavorite) R.drawable.ic_favorite_on else R.drawable.ic_favorite_off
+                    )
+
+                }
+                listener(head)
             }
         }
     }

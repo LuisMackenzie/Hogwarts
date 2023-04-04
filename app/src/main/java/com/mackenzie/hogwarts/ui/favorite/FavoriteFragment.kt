@@ -94,12 +94,33 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), OnItemClickListen
         alertDialog?.show()
     }
 
+    fun showCloseSesionAlert() {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(R.string.close_sesion)
+                setPositiveButton(R.string.close_sesion_confirm,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        viewModel.onUserLogOut()
+                        homeState.onFavoriteCloseSesion()
+                        Toast.makeText(requireContext(), getString(R.string.close_session_successful), Toast.LENGTH_SHORT).show()
+                    })
+                setNegativeButton(R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dialog.dismiss()
+                    })
+            }
+            builder.create()
+        }
+        alertDialog?.show()
+    }
+
     private fun createMenuToolbar() {
         binding.detailToolbar.inflateMenu(R.menu.menu_main)
         binding.detailToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_close_session -> {
-                    homeState.onFavoriteCloseSesion()
+                    showCloseSesionAlert()
                     true
                 }
                 else -> false

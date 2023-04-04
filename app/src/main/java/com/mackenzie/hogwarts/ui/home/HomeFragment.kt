@@ -1,12 +1,15 @@
 package com.mackenzie.hogwarts.ui.home
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.mackenzie.domain.HeadItem
 import com.mackenzie.hogwarts.R
 import com.mackenzie.hogwarts.databinding.FragmentHomeBinding
 import com.mackenzie.hogwarts.ui.common.*
@@ -19,7 +22,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var homeState: HomeState
     private val  viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
-    private val housesAdapter = HomeAdapter {  homeState.onHouseClicked(it) }
+    private val housesAdapter = HomeAdapter { homeState.onHouseClicked(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,8 +46,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.listToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_close_session -> {
-                    homeState.onHomeCloseSesion()
-                    viewModel.onUserLogOut()
+                    showCloseSesionAlert()
                     true
                 }
                 else -> false
@@ -74,22 +76,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_main, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.action_close_session -> closeSesion()
+    fun showCloseSesionAlert() {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(R.string.close_sesion)
+                setPositiveButton(R.string.close_sesion_confirm,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        viewModel.onUserLogOut()
+                        homeState.onHomeCloseSesion()
+                        Toast.makeText(requireContext(), getString(R.string.close_session_successful), Toast.LENGTH_SHORT).show()
+                    })
+                setNegativeButton(R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dialog.dismiss()
+                    })
+            }
+            builder.create()
         }
-        return super.onOptionsItemSelected(item)
-    }*/
-
-    /*private fun setToolbar(view: View?) {
-        val toolbar = binding.listToolbar
-        (this.activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
-        setHasOptionsMenu(true)
-    }*/
+        alertDialog?.show()
+    }
 
 }
