@@ -19,5 +19,9 @@
     <string name="delete_favorite_succesful">Se elimino con éxito</string>
     <string name="cancel">Cancelar</string>
     <string name="heads">Líderes</string>
+    <string name="login_user">Usuario</string>
+    <string name="login_pass">Contraseña</string>
+    <string name="close_session">Cerrar Sesión</string>
+    <string name="error_unespecified">No Existe sesion Previa</string>
 
 </resources>

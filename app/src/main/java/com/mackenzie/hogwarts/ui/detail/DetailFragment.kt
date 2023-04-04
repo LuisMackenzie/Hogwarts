@@ -37,6 +37,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 requireActivity().onBackPressedDispatcher.onBackPressed()
             }
         }
+
+        createMenuToolbar()
         viewLifecycleOwner.launchAndCollect(viewModel.state) { binding updateUI it }
     }
 
@@ -59,6 +61,19 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             homeState.errorToString(it)
             Toast.makeText(requireContext(), homeState.errorToString(it), Toast.LENGTH_SHORT).show()
             Log.e(Constants.TAG_CARD_CONECTION_ERROR, homeState.errorToString(it))
+        }
+    }
+
+    private fun createMenuToolbar() {
+        binding.detailToolbar.inflateMenu(R.menu.menu_main)
+        binding.detailToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_close_session -> {
+                    homeState.onDetailCloseSesion()
+                    true
+                }
+                else -> false
+            }
         }
     }
 

@@ -18,8 +18,14 @@ class UsersDataSource @Inject constructor(private val dao: UserDao): UsersLocalD
 
     override fun findByEmail(email: String): Flow<UserItem> = dao.findByEmail(email).map { it.toDomainModel() }
 
+    override fun findByName(name: String): Flow<UserItem> = dao.findByName(name).map { it.toDomainModel() }
+
     override suspend fun save(users: List<UserItem>): Error? = tryCall {
         dao.insertAllUsers(users.fromDomainModel())
+    }.fold(ifLeft = { it }, ifRight = { null })
+
+    override suspend fun saveOnly(user: UserItem): Error? = tryCall {
+        dao.insertUser(user.fromDomainModel())
     }.fold(ifLeft = { it }, ifRight = { null })
 }
 

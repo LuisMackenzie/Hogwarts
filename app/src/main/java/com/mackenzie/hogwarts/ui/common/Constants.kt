@@ -7,5 +7,6 @@ class Constants {
         const val FAV_IMAGE: String = "Hogwarts"
         const val TAG_CARD_CONECTION_ERROR = "HomeFragment:Error"
         const val TAG_CARD_ADAPTER_ERROR = "HomeAdapter:Error"
+        const val LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL"
     }
 }

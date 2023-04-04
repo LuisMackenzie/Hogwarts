@@ -4,9 +4,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
@@ -26,11 +24,12 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), OnItemClickListen
     private val viewModel: FavoriteViewModel by viewModels()
     private lateinit var homeState: HomeState
     private val favoriteAdapter = FavoriteAdapter(this)
+    private lateinit var binding: FragmentFavoriteBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeState = buildHomeState()
-        val binding = FragmentFavoriteBinding.bind(view).apply {
+        binding = FragmentFavoriteBinding.bind(view).apply {
             recycler.adapter = favoriteAdapter
             detailToolbar.title = getString(R.string.favorite_fragment_title)
             detailToolbar.setNavigationOnClickListener{
@@ -38,6 +37,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), OnItemClickListen
             }
         }
 
+        createMenuToolbar()
         viewLifecycleOwner.launchAndCollect(viewModel.state) { binding updateUI it }
     }
 
@@ -92,6 +92,19 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), OnItemClickListen
             builder.create()
         }
         alertDialog?.show()
+    }
+
+    private fun createMenuToolbar() {
+        binding.detailToolbar.inflateMenu(R.menu.menu_main)
+        binding.detailToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_close_session -> {
+                    homeState.onFavoriteCloseSesion()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
 }

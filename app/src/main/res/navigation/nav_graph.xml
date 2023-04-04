@@ -38,6 +38,14 @@
             app:exitAnim="@anim/side_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/side_out_right" />
+        <action
+            android:id="@+id/action_home_to_login"
+            app:destination="@id/login_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -46,12 +54,13 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_favorite_to_detail"
-            app:destination="@id/detail_dest"
+            android:id="@+id/action_favorite_to_login"
+            app:destination="@id/login_dest"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/side_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/side_out_right" />
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -59,6 +68,14 @@
         android:name="com.mackenzie.hogwarts.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detail_to_login"
+            app:destination="@id/login_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="houseId"
             app:argType="integer" />
