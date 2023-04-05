@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -23,6 +24,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val  viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
     private val housesAdapter = HomeAdapter { homeState.onHouseClicked(it) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+            activity?.finish()
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
