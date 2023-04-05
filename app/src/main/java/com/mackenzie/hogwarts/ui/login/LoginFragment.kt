@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.fragment.findNavController
@@ -25,6 +26,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private lateinit var loginState: LoginState
     private val  viewModel: LoginViewModel by viewModels()
     private lateinit var binding: FragmentLoginBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            activity?.finish()
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,7 +57,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun isUserLogged(sharedPref: SharedPreferences) {
         if (sharedPref.getBoolean(Constants.LOGIN_SUCCESSFUL, false)) {
             loginState.onUserLogged()
-            Toast.makeText(requireContext(), "Detectada sesion anterior", Toast.LENGTH_SHORT).show()
         } else {
             Log.e(Constants.TAG_CARD_CONECTION_ERROR, getString(R.string.error_unespecified))
         }
@@ -70,7 +77,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 loginState.onUserLogged()
                 Toast.makeText(requireContext(), "Estas Logeado ", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireContext(), getString(R.string.error_unespecified), Toast.LENGTH_SHORT).show()
+                // Toast.makeText(requireContext(), getString(R.string.error_unespecified), Toast.LENGTH_SHORT).show()
                 Log.e(Constants.TAG_CARD_CONECTION_ERROR, getString(R.string.error_unespecified))
             }
         }
